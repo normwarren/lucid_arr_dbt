@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: masked
+    loader: whatever_tool_you_decide_on
+    description: raw data landed by Norm/Michael
+    database: dbt_dev
+    schema: masked
+   
+    freshness:
+      error_after:
+        count: 1
+        period: day
+    
+    loaded_at_field: load_date
+    tables:
+      - name: Accounts
+        description: some description about accounts.
+      - name: Users
+        description: I'm on a dinner data with a boxer. She is going for the ribs.
+      - name: Subscription_Log
+        description: I just don’t trust elevators. When I can, I take steps to avoid them.
+      - name: Sales_Representatives
+        description: Albert Einstein had a younger brother named Frank. He was a Monster.
+      - name: Forecast
+        description: A bear with no teeth is a gummy bear.
+      - name: Calendar
+        description: I saw a guy at the ATM with one leg checking his balance.
+        # Skips this table for a freshness test
+        freshness: 
+      - name: Activity
+        description: I hate negative numbers. I stop at nothing to avoid them.
