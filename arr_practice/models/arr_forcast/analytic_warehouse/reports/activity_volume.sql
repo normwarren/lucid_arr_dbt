@@ -6,7 +6,7 @@ select
     , cd.geo_region
     , count(*) as activity_volume
 from {{ref('activity')}} a
-join {{ref('activity')}} cd
+join {{ref('customer_dim')}} cd
     a.user_id = cd.user_id
 group by 
     a.event
